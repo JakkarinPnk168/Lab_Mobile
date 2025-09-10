@@ -138,7 +138,6 @@ class _ShowTripPageState extends State<ShowTripPage> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                // ListView ของทริป
                 Expanded(
                   child: filteredTrips.isEmpty
                       ? const Center(child: Text('ไม่พบทริปในทวีปนี้'))

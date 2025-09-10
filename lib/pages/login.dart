@@ -150,7 +150,6 @@ class _LoginPageState extends State<LoginPage> {
         CustomerLoginPostResponse customerLoginPostResponse =
             customerLoginPostResponseFromJson(response.body);
 
-        // login สำเร็จ → ไปหน้า ShowTripPage
         Navigator.push(
           context,
           MaterialPageRoute(

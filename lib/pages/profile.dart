@@ -16,7 +16,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   late Future<CustomerIdxGetResponse> loadData;
 
-  // Controllers
   final nameCtl = TextEditingController();
   final phoneCtl = TextEditingController();
   final emailCtl = TextEditingController();
@@ -105,7 +104,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
           final customer = snapshot.data!;
 
-          // ใส่ค่าเริ่มต้นลง controller (ทำครั้งเดียวหลังจากโหลด)
           nameCtl.text = customer.fullname;
           phoneCtl.text = customer.phone;
           emailCtl.text = customer.email;
@@ -115,7 +113,6 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-                // Avatar
                 CircleAvatar(
                   radius: 60,
                   backgroundImage: NetworkImage(imageCtl.text),
@@ -158,7 +155,7 @@ class _ProfilePageState extends State<ProfilePage> {
         const SizedBox(height: 4),
         TextField(
           controller: ctl,
-          readOnly: false, // แก้ไขได้
+          readOnly: false,
           decoration: const InputDecoration(border: UnderlineInputBorder()),
         ),
       ],
@@ -183,7 +180,7 @@ class _ProfilePageState extends State<ProfilePage> {
       "email": emailCtl.text,
       "image": imageCtl.text,
     };
-    // Not using the model, use jsonEncode() and jsonDecode()
+
     try {
       var res = await http.put(
         Uri.parse('$url/customers/${widget.idx}'),
@@ -192,7 +189,7 @@ class _ProfilePageState extends State<ProfilePage> {
       );
       log(res.body);
       var result = jsonDecode(res.body);
-      // Need to know json's property by reading from API Tester
+
       log(result['message']);
       showDialog(
         context: context,

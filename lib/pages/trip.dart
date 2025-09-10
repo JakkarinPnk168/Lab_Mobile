@@ -39,7 +39,6 @@ class _TripPageState extends State<TripPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // ชื่อทริปตัวหนา
                 Text(
                   tripIdxGetResponse.name,
                   style: const TextStyle(
@@ -49,14 +48,12 @@ class _TripPageState extends State<TripPage> {
                 ),
                 const SizedBox(height: 8),
 
-                // ประเทศ
                 Text(
                   tripIdxGetResponse.country,
                   style: const TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 12),
 
-                // รูปภาพ
                 tripIdxGetResponse.coverimage.isNotEmpty
                     ? ClipRRect(
                         borderRadius: BorderRadius.circular(12),
@@ -85,7 +82,6 @@ class _TripPageState extends State<TripPage> {
                       ),
                 const SizedBox(height: 12),
 
-                // แถวราคาและโซน
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -101,14 +97,12 @@ class _TripPageState extends State<TripPage> {
                 ),
                 const SizedBox(height: 12),
 
-                // รายละเอียด
                 Text(
                   tripIdxGetResponse.detail,
                   style: const TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 20),
 
-                // ปุ่มจองตรงกลาง
                 Center(
                   child: FilledButton(
                     onPressed: () {},
